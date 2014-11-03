@@ -1,8 +1,8 @@
 #include <Python.h>
 
-#include "x13.h"
+#include "X13.h"
 
-static PyObject *x13_getpowhash(PyObject *self, PyObject *args)
+static PyObject *X13_getpowhash(PyObject *self, PyObject *args)
 {
     char *output;
     PyObject *value;
@@ -17,9 +17,9 @@ static PyObject *x13_getpowhash(PyObject *self, PyObject *args)
     output = PyMem_Malloc(32);
 
 #if PY_MAJOR_VERSION >= 3
-    x13_hash((char *)PyBytes_AsString((PyObject*) input), output);
+    X13_hash((char *)PyBytes_AsString((PyObject*) input), output);
 #else
-    x13_hash((char *)PyString_AsString((PyObject*) input), output);
+    X13_hash((char *)PyString_AsString((PyObject*) input), output);
 #endif
     Py_DECREF(input);
 #if PY_MAJOR_VERSION >= 3
@@ -32,26 +32,26 @@ static PyObject *x13_getpowhash(PyObject *self, PyObject *args)
 }
 
 static PyMethodDef X13Methods[] = {
-    { "getPoWHash", x13_getpowhash, METH_VARARGS, "Returns the proof of work hash using x13 hash" },
+    { "getPoWHash", X13_getpowhash, METH_VARARGS, "Returns the proof of work hash using X13 hash" },
     { NULL, NULL, 0, NULL }
 };
 
 #if PY_MAJOR_VERSION >= 3
 static struct PyModuleDef X13Module = {
     PyModuleDef_HEAD_INIT,
-    "x13_hash",
+    "X13_hash",
     "...",
     -1,
     X13Methods
 };
 
-PyMODINIT_FUNC PyInit_x13_hash(void) {
+PyMODINIT_FUNC PyInit_X13_hash(void) {
     return PyModule_Create(&X13Module);
 }
 
 #else
 
-PyMODINIT_FUNC initx13_hash(void) {
-    (void) Py_InitModule("x13_hash", X13Methods);
+PyMODINIT_FUNC initX13_hash(void) {
+    (void) Py_InitModule("X13_hash", X13Methods);
 }
 #endif

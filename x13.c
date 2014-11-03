@@ -1,4 +1,4 @@
-#include "x13.h"
+#include "X13.h"
 #include <stdlib.h>
 #include <stdint.h>
 #include <string.h>
@@ -19,7 +19,7 @@
 #include "sha3/sph_fugue.h"
 
 
-void x13_hash(const char* input, char* output)
+void X13_hash(const char* input, char* output)
 {
     sph_blake512_context     ctx_blake;
     sph_bmw512_context       ctx_bmw;

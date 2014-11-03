@@ -1,8 +1,8 @@
 from distutils.core import setup, Extension
 
-x13_hash_module = Extension('x13_hash',
-                               sources = ['x13module.c',
-                                          'x13.c',
+X13_hash_module = Extension('X13_hash',
+                               sources = ['X13module.c',
+                                          'X13.c',
 										  'sha3/blake.c',
 										  'sha3/bmw.c',
 										  'sha3/groestl.c',
@@ -20,7 +20,7 @@ x13_hash_module = Extension('x13_hash',
 
                                include_dirs=['.', './sha3'])
 
-setup (name = 'x13_hash',
+setup (name = 'X13_hash',
        version = '1.0',
-       description = 'Bindings for proof of work used by x13',
-       ext_modules = [x13_hash_module])
+       description = 'Bindings for proof of work used by X13',
+       ext_modules = [X13_hash_module])
